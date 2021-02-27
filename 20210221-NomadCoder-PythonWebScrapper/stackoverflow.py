@@ -20,13 +20,15 @@ def extract_job(html):
         "h3", {"class": "fc-black-700"}).find_all("span", recursive=0)
     company = company.get_text(strip=True)
     location = location.get_text(strip=True).strip("-").strip("\n")
+    job_id = html['data-jobid']
     # 0=False, 1 = True
-    return {'title': title, 'company': company, 'location': location}
+    return {'title': title, 'company': company, 'location': location, "apply_link": f"https://stackoverflow.com/jobs/{job_id}"}
 
 
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
+        print(f"Scrapping SO: Page: {page}")
         result = requests.get(f"{URL}&pg={page+1}")
         # print(result.status_code) - to test the success rate of the request code.
         soup = BeautifulSoup(result.text, "html.parser")

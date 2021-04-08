@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <h1>Nomad News</h1>
+  <a id="test">testing</a>
+  <p> Order by: Popular | News</p>
+    <!-- For loop logic of jinja template -->
+ 
+    {%for i in range(0, len)%}
+       <div>{{articles[i]}}</div>
+    {%endfor%}
+  
+</body>
+<script>
+  let x = document.getElementById('test');
+  let y = "www.google.com"
+  x.href="www.google.com"
+  </script>
+</html>
+
